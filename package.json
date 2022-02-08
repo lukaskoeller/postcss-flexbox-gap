@@ -1,6 +1,6 @@
 {
   "name": "postcss-flexbox-gap",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "PostCSS plugin for single line flexbox gap",
   "keywords": [
     "postcss",
