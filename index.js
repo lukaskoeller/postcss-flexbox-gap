@@ -4,14 +4,25 @@ const GAP_VALUES = ['gap', 'column-gap', 'grid-gap', 'grid-column-gap'];
 const [GAP, COLUMN_GAP, GRID_GAP, GRID_COLUMN_GAP] = GAP_VALUES;
 const CUSTOM_GAP_PROPERTY = '--pfg-gap';
 
+const hasDisplayGrid = (nodes) => (
+  !!nodes.some((node) => node.prop === 'display' && node.value === 'grid')
+);
+
+const hasGapZero = (nodes) => (
+  !!nodes.some((node) => GAP_VALUES.includes(node.prop) && node.value === '0')
+);
+
 /**
  * Adds a new custom gap declaration using the gap value
  * and removes the gap declaration.
  * @param {*} decl 
  */
 const modifyGapProp = (decl) => {
+  const parentNodes = decl.parent.nodes;
+  if (hasDisplayGrid(parentNodes) || hasGapZero(parentNodes)) return;
+  console.log(decl.parent.nodes);
   decl.after(`${CUSTOM_GAP_PROPERTY}: ${decl.value}`);
-  decl.remove();
+  // decl.remove();
 };
 
 // Help: https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md
@@ -45,11 +56,18 @@ module.exports = (/* opts = {} */) => {
       [GRID_COLUMN_GAP]: modifyGapProp,
       display: (decl) => {
         const isFlexContainer = DISPLAY_FLEX_VALUES.includes(decl.value);
+        if (!isFlexContainer) return;
+        const rule = decl.parent;
+        
+        // Add owl selector to direct children
+        rule.after(`${rule.selector} > * + * { margin-left: var(${CUSTOM_GAP_PROPERTY}); }`)
 
-        if (isFlexContainer) {
-          const rule = decl.parent;
-          rule.after(`${rule.selector} > * + * { margin-left: var(${CUSTOM_GAP_PROPERTY}); }`)
-        }
+        // Make sure gap is not used in conjunction with display: flex
+        // to avoid double gap through `gap` and `margin-left`.
+        // Added to the end of the root to avoid style overwrites.
+        decl.root().append(`${rule.selector} { ${
+          GAP_VALUES.map((value) => (`${value}: 0;`)).join(' ')
+        } }`)
       }
     }
 
