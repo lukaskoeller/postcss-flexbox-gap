@@ -17,6 +17,14 @@ const hasGapZero = (nodes) => (
   !!nodes.some((node) => GAP_VALUES.includes(node.prop) && node.value === '0')
 );
 
+const hasFlexWrap = (nodes) => (
+  !!nodes.some((node) => node.prop === 'flex-flow' && node.value.includes('wrap'))
+);
+
+const hasFbgProp = (nodes) => (
+  !!nodes.some((node) => node.prop === CUSTOM_GAP_PROPERTY)
+);
+
 /**
  * Adds a new custom gap declaration using the gap value
  * and removes the gap declaration.
@@ -24,7 +32,12 @@ const hasGapZero = (nodes) => (
  */
 const modifyGapProp = (decl) => {
   const parentNodes = decl.parent.nodes;
-  if (hasDisplayGrid(parentNodes) || hasGapZero(parentNodes)) return;
+  if (
+    hasDisplayGrid(parentNodes)
+    || hasGapZero(parentNodes)
+    || hasFlexWrap(parentNodes)
+    || hasFbgProp(parentNodes)
+  ) return;
   decl.after(`${CUSTOM_GAP_PROPERTY}: ${decl.value}`);
   // decl.remove();
 };
@@ -61,7 +74,7 @@ module.exports = (/* opts = {} */) => {
         const rule = decl.parent;
         
         // Add owl selector to direct children
-        rule.after(`${rule.selector} > * + * { margin-left: var(${CUSTOM_GAP_PROPERTY}); }`)
+        rule.after(`${rule.selector} > * + * { margin-left: var(${CUSTOM_GAP_PROPERTY}, 0); }`)
 
         // Make sure gap is not used in conjunction with display: flex
         // to avoid double gap through `gap` and `margin-left`.
