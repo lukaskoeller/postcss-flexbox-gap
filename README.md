@@ -1,5 +1,7 @@
 # postcss-flexbox-gap
 
+> ⚠️ Not production ready. Can still include several bugs.
+
 [PostCSS] plugin for single line flexbox gap.
 
 [PostCSS]: https://github.com/postcss/postcss
