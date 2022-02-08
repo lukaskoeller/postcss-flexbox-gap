@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.7...v0.0.8) (2022-02-08)
+
+
+### Bug Fixes
+
+* avoid --pfg-gap duplicates ([eab7247](https://github.com/lukaskoeller/postcss-flexbox-gap/commit/eab724766b3d86da68425a8c5e5d80449b61ff17))
+
 ### [0.0.7](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.6...v0.0.7) (2022-02-08)
 
 ### [0.0.6](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.5...v0.0.6) (2022-02-08)
