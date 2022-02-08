@@ -1,6 +1,7 @@
 // Help: https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md
 // Guidelines: https://github.com/postcss/postcss/blob/main/docs/guidelines/plugin.md
 // PostCSS API: https://postcss.org/api/
+// AST Explorer: https://astexplorer.net/
 
 const DISPLAY_FLEX_VALUES = ['flex', 'inline-flex'];
 // row-gap is not mentioned here since this plugin only supports single line usage of flexbox.
