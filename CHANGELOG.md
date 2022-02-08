@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.2...v0.0.3) (2022-02-08)
+
+
+### Bug Fixes
+
+* rm decl after property has been added ([0b2b259](https://github.com/lukaskoeller/postcss-flexbox-gap/commit/0b2b259bf465af8ec8d1210f9286cdd46c00c8e2))
+
 ### [0.0.2](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.1...v0.0.2) (2022-02-08)
 
 
