@@ -20,7 +20,6 @@ const hasGapZero = (nodes) => (
 const modifyGapProp = (decl) => {
   const parentNodes = decl.parent.nodes;
   if (hasDisplayGrid(parentNodes) || hasGapZero(parentNodes)) return;
-  console.log(decl.parent.nodes);
   decl.after(`${CUSTOM_GAP_PROPERTY}: ${decl.value}`);
   // decl.remove();
 };
