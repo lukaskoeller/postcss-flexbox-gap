@@ -6,13 +6,22 @@
 
 ```css
 .foo {
-  /* Input example */
+  --gap: 24px;
+  display: flex;
+  gap: var(--gap);
 }
 ```
 
 ```css
 .foo {
-  /* Output example */
+  --gap: 24px;
+  display: flex;
+  gap: var(--gap);
+  --pfg-gap: var(--gap);
+}
+
+.foo > * + * {
+  margin-left: var(--pfg-gap);
 }
 ```
 
