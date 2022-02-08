@@ -26,8 +26,8 @@ module.exports = (/* opts = {} */) => {
 
     Declaration: {
       gap: (decl) => {
-        decl.remove();
         decl.after(`${CUSTOM_GAP_PROPERTY}: ${decl.value}`);
+        decl.remove();
       },
       display: (decl) => {
         const isFlexContainer = DISPLAY_FLEX_VALUES.includes(decl.value);
