@@ -12,14 +12,14 @@ describe('CSS Flexbox Gap Polyfill', () => {
   it('should fallback when gap and display: flex are defined in a single selector', async () => {
     run(
       '.some { color: red; } .single { --gap: 24px; display: flex; gap: var(--gap); }',
-      '.some { color: red; } .single { --gap: 24px; display: flex; gap: var(--gap);--pfg-gap: var(--gap); } .single > * + * { margin-left: var(--pfg-gap); }',
+      '.some { color: red; } .single { --gap: 24px; display: flex;--pfg-gap: var(--gap); } .single > * + * { margin-left: var(--pfg-gap); }',
       { }
     )
   });
   it('should fallback when gap and display: flex are defined in multiple selectors', () => {
     run(
       '.some { color: red; } .first { --gap: 24px; gap: var(--gap); } .second { display: flex; }',
-      '.some { color: red; } .first { --gap: 24px; gap: var(--gap);--pfg-gap: var(--gap); } .second { display: flex; } .second > * + * { margin-left: var(--pfg-gap); }',
+      '.some { color: red; } .first { --gap: 24px;--pfg-gap: var(--gap); } .second { display: flex; } .second > * + * { margin-left: var(--pfg-gap); }',
       { }
     )
   });
