@@ -51,4 +51,11 @@ describe('CSS Flexbox Gap Polyfill', () => {
       { }
     )
   });
+  it('should not conflict with gap and display: grid in multiple nodes', async () => {
+    await run(
+      '.some { color: red; } .first { gap: 12px; } .second { display: grid; }',
+      '.some { color: red; } .first { gap: 12px;--pfg-gap: 12px; } .second { display: grid; }',
+      { }
+    )
+  });
 });
