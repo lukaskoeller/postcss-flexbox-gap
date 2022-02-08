@@ -2,7 +2,12 @@
   "name": "postcss-flexbox-gap",
   "version": "0.0.0",
   "description": "PostCSS plugin for single line flexbox gap",
-  "keywords": ["postcss", "css", "postcss-plugin", "postcss-flexbox-gap"],
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "postcss-flexbox-gap"
+  ],
   "scripts": {
     "test": "jest --coverage && eslint ."
   },
@@ -20,7 +25,8 @@
     "eslint": "^8.0.1",
     "eslint-plugin-jest": "^25.2.2",
     "jest": "^27.3.1",
-    "postcss": "^8.3.11"
+    "postcss": "^8.3.11",
+    "standard-version": "^9.3.2"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -30,7 +36,10 @@
       "node": true,
       "es6": true
     },
-    "extends": ["eslint:recommended", "plugin:jest/recommended"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:jest/recommended"
+    ],
     "rules": {
       "jest/expect-expect": "off"
     }
