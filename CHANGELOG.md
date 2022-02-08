@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.4...v0.0.5) (2022-02-08)
+
+
+### Bug Fixes
+
+* handling with display: grid ([02a0c99](https://github.com/lukaskoeller/postcss-flexbox-gap/commit/02a0c994b3d1a3ddea8b7cb90e935b9e7046ecc3))
+
 ### [0.0.4](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.3...v0.0.4) (2022-02-08)
 
 
