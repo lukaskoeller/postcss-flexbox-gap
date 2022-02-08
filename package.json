@@ -1,6 +1,6 @@
 {
   "name": "postcss-flexbox-gap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "PostCSS plugin for single line flexbox gap",
   "keywords": [
     "postcss",
@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "test": "jest --coverage && eslint .",
-    "release": "standard-version"
+    "release": "standard-version",
+    "publish": "npx clean-publish"
   },
   "author": "Lukas Koeller <acc.koeller@protonmail.com>",
   "license": "MIT",

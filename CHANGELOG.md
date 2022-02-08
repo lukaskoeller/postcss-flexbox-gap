@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/lukaskoeller/postcss-flexbox-gap/compare/v0.0.1...v0.0.2) (2022-02-08)
+
+
+### Bug Fixes
+
+* remove gap property to avoid double space ([dd8e073](https://github.com/lukaskoeller/postcss-flexbox-gap/commit/dd8e07331f846fcc00343592ddd692234105ccad))
+
 ### 0.0.1 (2022-02-08)
 
 
