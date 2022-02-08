@@ -1,3 +1,7 @@
+// Help: https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md
+// Guidelines: https://github.com/postcss/postcss/blob/main/docs/guidelines/plugin.md
+// PostCSS API: https://postcss.org/api/
+
 const DISPLAY_FLEX_VALUES = ['flex', 'inline-flex'];
 // row-gap is not mentioned here since this plugin only supports single line usage of flexbox.
 const GAP_VALUES = ['gap', 'column-gap', 'grid-gap', 'grid-column-gap'];
@@ -23,9 +27,6 @@ const modifyGapProp = (decl) => {
   decl.after(`${CUSTOM_GAP_PROPERTY}: ${decl.value}`);
   // decl.remove();
 };
-
-// Help: https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md
-// Guidelines: https://github.com/postcss/postcss/blob/main/docs/guidelines/plugin.md
 
 /**
  * @type {import('postcss').PluginCreator}
