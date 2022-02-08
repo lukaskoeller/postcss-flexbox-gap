@@ -1,7 +1,12 @@
+const DISPLAY_FLEX_VALUES = ['flex', 'inline-flex'];
+const CUSTOM_GAP_PROPERTY = '--pfg-gap';
+
+// Help: https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md
+
 /**
  * @type {import('postcss').PluginCreator}
  */
-module.exports = (opts = {}) => {
+module.exports = (/* opts = {} */) => {
   // Work with options here
 
   return {
@@ -17,6 +22,20 @@ module.exports = (opts = {}) => {
       // The faster way to find Declaration node
     }
     */
+
+    Declaration: {
+      gap: (decl) => {
+        decl.after(`${CUSTOM_GAP_PROPERTY}: ${decl.value}`);
+      },
+      display: (decl) => {
+        const isFlexContainer = DISPLAY_FLEX_VALUES.includes(decl.value);
+
+        if (isFlexContainer) {
+          const rule = decl.parent;
+          rule.after(`${rule.selector} > * + * { margin-left: var(${CUSTOM_GAP_PROPERTY}); }`)
+        }
+      }
+    }
 
     /*
     Declaration: {
