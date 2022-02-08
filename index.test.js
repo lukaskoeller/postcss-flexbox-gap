@@ -23,4 +23,25 @@ describe('CSS Flexbox Gap Polyfill', () => {
       { }
     )
   });
+  it('should fallback when gap-column is used', () => {
+    run(
+      '.some { color: red; } .first { --gap: 24px; gap-column: var(--gap); } .second { display: flex; }',
+      '.some { color: red; } .first { --gap: 24px;--pfg-gap: var(--gap); } .second { display: flex; } .second > * + * { margin-left: var(--pfg-gap); }',
+      { }
+    )
+  });
+  it('should fallback when grid-gap is used', () => {
+    run(
+      '.some { color: red; } .first { --gap: 24px; grid-gap: var(--gap); } .second { display: flex; }',
+      '.some { color: red; } .first { --gap: 24px;--pfg-gap: var(--gap); } .second { display: flex; } .second > * + * { margin-left: var(--pfg-gap); }',
+      { }
+    )
+  });
+  it('should fallback when grid-column-gap is used', () => {
+    run(
+      '.some { color: red; } .first { --gap: 24px; grid-gap: var(--gap); } .second { display: flex; }',
+      '.some { color: red; } .first { --gap: 24px;--pfg-gap: var(--gap); } .second { display: flex; } .second > * + * { margin-left: var(--pfg-gap); }',
+      { }
+    )
+  });
 });
