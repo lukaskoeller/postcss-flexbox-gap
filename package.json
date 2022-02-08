@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest --coverage && eslint .",
     "release": "standard-version",
-    "publish": "npx clean-publish"
+    "publish": "git push --follow-tags origin main && npx clean-publish"
   },
   "author": "Lukas Koeller <acc.koeller@protonmail.com>",
   "license": "MIT",
