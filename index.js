@@ -5,7 +5,8 @@
 
 const DISPLAY_FLEX_VALUES = ['flex', 'inline-flex'];
 // row-gap is not mentioned here since this plugin only supports single line usage of flexbox.
-const GAP_VALUES = ['gap', 'column-gap', 'grid-gap', 'grid-column-gap'];
+const GAP_COLUMN_VALUES = ['column-gap', 'grid-column-gap'];
+const GAP_VALUES = ['gap', 'grid-gap', ...GAP_COLUMN_VALUES];
 const [GAP, COLUMN_GAP, GRID_GAP, GRID_COLUMN_GAP] = GAP_VALUES;
 const CUSTOM_GAP_PROPERTY = '--pfg-gap';
 
@@ -80,7 +81,7 @@ module.exports = (/* opts = {} */) => {
         // to avoid double gap through `gap` and `margin-left`.
         // Added to the end of the root to avoid style overwrites.
         decl.root().append(`${rule.selector} { ${
-          GAP_VALUES.map((value) => (`${value}: 0;`)).join(' ')
+          GAP_COLUMN_VALUES.map((value) => (`${value}: 0;`)).join(' ')
         } }`)
       }
     }
